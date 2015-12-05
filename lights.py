@@ -48,19 +48,26 @@ def play():
 """ Stop music """
 def stop():
     mixer.music.stop()
+    mixer.music.rewind()
 
 """ Main method cause I felt like it """
 def main():
     loadMusic()
+    sleepTime = 0.75
+    justPlayed = False
     while True:
         if button.is_pressed:
-            play()
+            if not mixer.music.get_busy():
+                justPlayed = True
+                play()
             lights()
-            time.sleep(0.4)
+            time.sleep(sleepTime)
             toggleLights()
-            time.sleep(0.4)
+            time.sleep(sleepTime)
         else:
-            stop()
-            turnOff()
+            if justPlayed:
+                stop()
+                turnOff()
+                justPlayed = False
 
 main()
