@@ -9,12 +9,12 @@ from pygame import mixer
 from gpiozero import LED, Button
 import time
 
-button = Button(7)
+button = Button(4)
 
-led1 = LED(2)
-led2 = LED(3)
-led3 = LED(4)
-led4 = LED(17)
+led1 = LED(5)  # GPIO 5
+led2 = LED(6)  # GPIO 6
+led3 = LED(12) # GPIO 12
+led4 = LED(13) # GPIO 13
 
 """ Easier to write a for loop """
 leds = [led1, led2, led3, led4]
